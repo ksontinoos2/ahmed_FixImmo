@@ -1,36 +1,35 @@
 class Equipement {
-  final int? id;
-  final int idPiece;
-  final String code;
-  final int quantite;
-  final String nom;
-  
+  int? id;
+  int idPiece;
+  String libelle;
+  int quantite;
+  String numeroEquipements;
+
   Equipement({
     this.id,
     required this.idPiece,
-    required this.code,
+    required this.libelle,
     required this.quantite,
-    required this.nom,
+    required this.numeroEquipements,
   });
-  
+
   Map<String, dynamic> toMap() {
     return {
       'id': id,
       'id_piece': idPiece,
-      'code': code,
+      'libelle': libelle,
       'quantite': quantite,
-      'nom': nom,
+      'numero_equipements': numeroEquipements,
     };
   }
-  
-  static Equipement fromMap(Map<String, dynamic> map) {
+
+  factory Equipement.fromMap(Map<String, dynamic> map) {
     return Equipement(
       id: map['id'],
       idPiece: map['id_piece'],
-      code: map['code'],
+      libelle: map['libelle'],
       quantite: map['quantite'],
-      nom: map['nom'],
+      numeroEquipements: map['numero_equipements'],
     );
   }
 }
-

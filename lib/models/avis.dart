@@ -1,44 +1,35 @@
 class Avis {
-  final int? id;
-  final int idClient;
-  final int idTechnicien;
-  final int idIntervention;
-  final int note;
-  final String? commentaire;
-  final DateTime dateCreation;
-  
+  int? id;
+  int idutilisateur;
+  double note;
+  String commentaire;
+  String date;
+
   Avis({
     this.id,
-    required this.idClient,
-    required this.idTechnicien,
-    required this.idIntervention,
+    required this.idutilisateur,
     required this.note,
-    this.commentaire,
-    required this.dateCreation,
+    required this.commentaire,
+    required this.date,
   });
-  
+
   Map<String, dynamic> toMap() {
     return {
       'id': id,
-      'id_client': idClient,
-      'id_technicien': idTechnicien,
-      'id_intervention': idIntervention,
+      'id_utilisateur': idutilisateur,
       'note': note,
       'commentaire': commentaire,
-      'date_creation': dateCreation.toIso8601String(),
+      'date': date,
     };
   }
-  
-  static Avis fromMap(Map<String, dynamic> map) {
+
+  factory Avis.fromMap(Map<String, dynamic> map) {
     return Avis(
       id: map['id'],
-      idClient: map['id_client'],
-      idTechnicien: map['id_technicien'],
-      idIntervention: map['id_intervention'],
-      note: map['note'],
+      idutilisateur: map['id_utilisateur'],
+      note: map['note'].toDouble(),
       commentaire: map['commentaire'],
-      dateCreation: DateTime.parse(map['date_creation']),
+      date: map['date'],
     );
   }
 }
-

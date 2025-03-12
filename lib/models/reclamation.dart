@@ -1,40 +1,39 @@
 class Reclamation {
-  final int? id;
-  final int idClient;
-  final int idEquipement;
-  final String description;
-  final DateTime dateCreation;
-  final String statut;
-  
+  int? idReclam;          
+  int idUtil;             
+  int idEquipement;       
+  String description;
+  String dateCreation;    
+  String statut;
+
   Reclamation({
-    this.id,
-    required this.idClient,
+    this.idReclam,
+    required this.idUtil,
     required this.idEquipement,
     required this.description,
     required this.dateCreation,
     required this.statut,
   });
-  
+
   Map<String, dynamic> toMap() {
     return {
-      'id': id,
-      'id_client': idClient,
+      'id_reclam': idReclam,
+      'id_util': idUtil,
       'id_equipement': idEquipement,
       'description': description,
-      'date_creation': dateCreation.toIso8601String(),
+      'dateCreation': dateCreation,
       'statut': statut,
     };
   }
-  
-  static Reclamation fromMap(Map<String, dynamic> map) {
+
+  factory Reclamation.fromMap(Map<String, dynamic> map) {
     return Reclamation(
-      id: map['id'],
-      idClient: map['id_client'],
+      idReclam: map['id_reclam'],
+      idUtil: map['id_util'],
       idEquipement: map['id_equipement'],
       description: map['description'],
-      dateCreation: DateTime.parse(map['date_creation']),
+      dateCreation: map['dateCreation'],
       statut: map['statut'],
     );
   }
 }
-

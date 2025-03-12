@@ -1,28 +1,23 @@
 class Piece {
-  final int? id;
-  final int idMaison;
-  final String nom;
-  
-  Piece({
-    this.id,
-    required this.idMaison,
-    required this.nom,
-  });
-  
+  int? id_piece;
+  int idMaison;
+final String nom_piece;
+
+  Piece({this.id_piece, required this.idMaison, required this.nom_piece});
+
   Map<String, dynamic> toMap() {
     return {
-      'id': id,
+      'id_piece': id_piece,
       'id_maison': idMaison,
-      'nom': nom,
+      'nom_piece':nom_piece,
     };
   }
-  
-  static Piece fromMap(Map<String, dynamic> map) {
+
+  factory Piece.fromMap(Map<String, dynamic> map) {
     return Piece(
-      id: map['id'],
+      id_piece: map['id_piece'],
       idMaison: map['id_maison'],
-      nom: map['nom'],
+      nom_piece:map['nom_piece'],
     );
   }
 }
-
